@@ -167,8 +167,8 @@
 
         footerDeveloperLabel: "DEVELOPER",
 
-        pageTitle: "Fijman — Web & Electron Development",
-        metaDescription: "Fijman — website, web application and Electron desktop app development."
+        pageTitle: "Fijman.tech — Web Development",
+        metaDescription: "Fijman.tech — website, web application and Electron desktop app development."
       },
 
       ru: {
@@ -328,8 +328,8 @@
 
         footerDeveloperLabel: "РАЗРАБОТЧИК",
 
-        pageTitle: "Fijman — Web и Electron разработка",
-        metaDescription: "Fijman — разработка сайтов, Web-приложений и Desktop-приложений на Electron."
+        pageTitle: "Fijman.tech — Web Development",
+        metaDescription: "Fijman.tech — разработка сайтов, Web-приложений и Desktop-приложений на Electron."
       }
     };
 
