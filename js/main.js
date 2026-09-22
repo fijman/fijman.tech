@@ -167,8 +167,8 @@
 
         footerDeveloperLabel: "DEVELOPER",
 
-        pageTitle: "Fijman.tech — Web Development",
-        metaDescription: "Fijman.tech — website, web application and Electron desktop app development."
+        pageTitle: "Fijman — Web & Electron Development",
+        metaDescription: "Fijman — website, web application and Electron desktop app development."
       },
 
       ru: {
@@ -328,8 +328,8 @@
 
         footerDeveloperLabel: "РАЗРАБОТЧИК",
 
-        pageTitle: "Fijman.tech — Web Development",
-        metaDescription: "Fijman.tech — разработка сайтов, Web-приложений и Desktop-приложений на Electron."
+        pageTitle: "Fijman — Web и Electron разработка",
+        metaDescription: "Fijman — разработка сайтов, Web-приложений и Desktop-приложений на Electron."
       }
     };
 
@@ -680,7 +680,7 @@
       const dict = translations[currentLang] || translations.en;
       const active = contactModal.querySelector(".chip.active");
 
-      let href = "mailto:hello@fijman.tech";
+      let href = "mailto:fijman6666@gmail.com";
 
       if (active) {
         const type = dict[active.dataset.chip];
@@ -725,7 +725,7 @@
     modalCopy.addEventListener("click", async () => {
 
       try {
-        await navigator.clipboard.writeText("hello@fijman.tech");
+        await navigator.clipboard.writeText("fijman6666@gmail.com");
       } catch (error) {
         return;
       }

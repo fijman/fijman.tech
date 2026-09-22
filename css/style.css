@@ -550,105 +550,6 @@
       background: rgba(255, 255, 255, 0.04);
     }
 
-    /* Короткая строка живых цифр студии */
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: clamp(22px, 4vw, 44px);
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-
-      padding-left: clamp(16px, 2vw, 22px);
-
-      border-left: 1px solid var(--line);
-    }
-
-    .stat:first-child {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .stat-value {
-      color: var(--text);
-
-      font-size: clamp(20px, 2.6vw, 26px);
-      font-weight: 680;
-      letter-spacing: -0.03em;
-    }
-
-    .stat-label {
-      color: var(--faint);
-
-      font: 10px var(--mono);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* Бегущая строка внизу первого экрана: тихо повторяет
-       «WEB · DESIGN · DEVELOPMENT» из фонового кадра */
-    .hero-marquee {
-      position: relative;
-      z-index: 2;
-
-      overflow: hidden;
-
-      margin-top: clamp(36px, 7svh, 64px);
-      padding-top: 18px;
-
-      border-top: 1px solid var(--line);
-
-      -webkit-mask-image: linear-gradient(
-        90deg,
-        transparent 0,
-        #000 8%,
-        #000 92%,
-        transparent 100%
-      );
-      mask-image: linear-gradient(
-        90deg,
-        transparent 0,
-        #000 8%,
-        #000 92%,
-        transparent 100%
-      );
-    }
-
-    .marquee-track {
-      display: flex;
-      flex-shrink: 0;
-
-      gap: 22px;
-
-      width: max-content;
-
-      animation: marquee 26s linear infinite;
-
-      color: var(--faint);
-
-      font: 11px var(--mono);
-      letter-spacing: 0.14em;
-      white-space: nowrap;
-    }
-
-    .marquee-track span {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .marquee-track .dot {
-      color: var(--blue);
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     /* Стрелка «листай вниз» внизу первого экрана */
     .scroll-cue {
       position: absolute;
@@ -681,12 +582,6 @@
     .scroll-cue:hover {
       color: var(--text);
       border-color: rgba(168, 200, 231, 0.5);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .marquee-track {
-        animation: none;
-      }
     }
 
     /* =========================================================
@@ -1935,7 +1830,9 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* Тело окна: сетка + голубое свечение, как в .preview */
+    /* Тело окна: раньше здесь была та же сетка+свечение, что и у
+       .preview — на весь экран это работает, а в компактном модальном
+       окне только добавляло шума. Оставили один мягкий блик в углу. */
     .contact-modal .modal-body {
       position: relative;
 
@@ -1943,46 +1840,33 @@
       flex-direction: column;
       align-items: flex-start;
 
-      gap: 20px;
+      gap: 18px;
 
-      padding: clamp(20px, 5vw, 30px);
+      padding: clamp(22px, 5vw, 32px);
 
       background:
         radial-gradient(
-          circle at 85% 0%,
-          rgba(139, 174, 204, 0.2),
-          transparent 45%
+          circle at 88% 0%,
+          rgba(139, 174, 204, 0.14),
+          transparent 50%
         ),
-        linear-gradient(
-          rgba(255, 255, 255, 0.035) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.035) 1px,
-          transparent 1px
-        ),
-        #242930;
-
-      background-size: auto, 40px 40px, 40px 40px, auto;
+        #21252b;
     }
 
     .contact-modal .modal-body > * {
       width: 100%;
     }
 
-    .contact-modal .modal-body > .hero-badge {
-      width: auto;
-    }
-
+    /* Заголовок модалки — это подтверждение действия, а не отдельный
+       hero: держим его в масштабе .section-title, не крупнее */
     .contact-modal .modal-title {
       margin: 0;
 
-      font-size: clamp(38px, 9vw, 56px);
-      font-weight: 720;
-      line-height: 0.9;
+      font-size: clamp(28px, 6vw, 36px);
+      font-weight: 680;
+      line-height: 1.05;
 
-      letter-spacing: -0.075em;
+      letter-spacing: -0.045em;
     }
 
     .modal-lead {
@@ -1992,7 +1876,7 @@
 
       color: var(--muted);
 
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.55;
     }
 
@@ -2570,7 +2454,7 @@
       .hero {
         padding-top: 104px;
 
-        /* Запас снизу, чтобы стрелка «вниз» не налезала на цифры */
+        /* Запас снизу, чтобы стрелка «вниз» не соприкасалась с контентом */
         padding-bottom: calc(84px + env(safe-area-inset-bottom));
       }
 
@@ -2580,33 +2464,6 @@
 
       .hero-description {
         font-size: 16px;
-      }
-
-      /* Три цифры в одну строку вместо неровного переноса */
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-
-        gap: 14px;
-      }
-
-      .stat {
-        padding-left: 12px;
-      }
-
-      .stat-value {
-        font-size: 20px;
-      }
-
-      .stat-label {
-        font-size: 9px;
-        line-height: 1.4;
-
-        overflow-wrap: anywhere;
-      }
-
-      .hero-marquee {
-        margin-top: 28px;
       }
 
       pre.code {
@@ -2798,7 +2655,7 @@
       }
 
       .contact-modal .modal-title {
-        font-size: clamp(32px, 8vw, 44px);
+        font-size: clamp(24px, 7vw, 30px);
       }
 
       .modal-lead {
@@ -2817,7 +2674,7 @@
       }
 
       .contact-modal .modal-title {
-        font-size: 32px;
+        font-size: 24px;
       }
     }
 
